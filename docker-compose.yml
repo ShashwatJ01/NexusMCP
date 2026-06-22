@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - path: ./backend/.env.example
+        required: true
+      - path: ./backend/.env
+        required: false
+    environment:
+      NEXUS_OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
+    volumes:
+      - nexus-logs:/app/logs
+    depends_on:
+      - otel-collector
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.115.0
+    command: ["--config=/etc/otelcol-contrib/config.yaml"]
+    volumes:
+      - ./otel-collector.yaml:/etc/otelcol-contrib/config.yaml:ro
+    ports:
+      - "4318:4318"
+    restart: unless-stopped
+
+volumes:
+  nexus-logs:
