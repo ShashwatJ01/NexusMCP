@@ -1,0 +1,1246 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 2176 >>
+stream
+BT
+/F2 20 Tf
+1 0 0 1 54 738 Tm
+(Agent, Model, MCP, and Tooling Interview Guide) Tj
+/F1 12 Tf
+1 0 0 1 54 712 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 694 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 676 Tm
+(1. The Big Idea) Tj
+/F1 12 Tf
+1 0 0 1 54 654 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 636 Tm
+(This project is an enterprise-style AI assistant hub. A user sends a request from a web) Tj
+/F1 12 Tf
+1 0 0 1 54 618 Tm
+(UI, a backend agent coordinates the request, a model reasons about what the request) Tj
+/F1 12 Tf
+1 0 0 1 54 600 Tm
+(means, and MCP-connected tools perform real actions when needed.) Tj
+/F1 12 Tf
+1 0 0 1 54 582 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 564 Tm
+(The core idea is that an LLM alone is not enough for production systems. Real) Tj
+/F1 12 Tf
+1 0 0 1 54 546 Tm
+(applications need:) Tj
+/F1 12 Tf
+1 0 0 1 54 528 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 510 Tm
+(• a frontend for interaction) Tj
+/F1 12 Tf
+1 0 0 1 54 492 Tm
+(• a backend for orchestration) Tj
+/F1 12 Tf
+1 0 0 1 54 474 Tm
+(• an agent loop for reasoning and control flow) Tj
+/F1 12 Tf
+1 0 0 1 54 456 Tm
+(• tools for external actions) Tj
+/F1 12 Tf
+1 0 0 1 54 438 Tm
+(• MCP servers for standard tool access) Tj
+/F1 12 Tf
+1 0 0 1 54 420 Tm
+(• guardrails for approvals and safety) Tj
+/F1 12 Tf
+1 0 0 1 54 402 Tm
+(• observability for tracing and debugging) Tj
+/F1 12 Tf
+1 0 0 1 54 384 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 366 Tm
+(2. The Four Main Concepts) Tj
+/F1 12 Tf
+1 0 0 1 54 344 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 326 Tm
+(Model) Tj
+/F1 12 Tf
+1 0 0 1 54 306 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 288 Tm
+(The model is the reasoning engine.) Tj
+/F1 12 Tf
+1 0 0 1 54 270 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 252 Tm
+(It is good at:) Tj
+/F1 12 Tf
+1 0 0 1 54 234 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 216 Tm
+(• understanding natural language) Tj
+/F1 12 Tf
+1 0 0 1 54 198 Tm
+(• inferring user intent) Tj
+/F1 12 Tf
+1 0 0 1 54 180 Tm
+(• deciding whether a tool is needed) Tj
+/F1 12 Tf
+1 0 0 1 54 162 Tm
+(• generating final answers) Tj
+/F1 12 Tf
+1 0 0 1 54 144 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 126 Tm
+(It is not responsible for directly reading files, updating systems, or enforcing runtime) Tj
+/F1 12 Tf
+1 0 0 1 54 108 Tm
+(safety.) Tj
+/F1 12 Tf
+1 0 0 1 54 90 Tm
+() Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 3 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 2198 >>
+stream
+BT
+/F2 14 Tf
+1 0 0 1 54 738 Tm
+(Agent) Tj
+/F1 12 Tf
+1 0 0 1 54 718 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 700 Tm
+(The agent is the workflow manager around the model.) Tj
+/F1 12 Tf
+1 0 0 1 54 682 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 664 Tm
+(It is responsible for:) Tj
+/F1 12 Tf
+1 0 0 1 54 646 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 628 Tm
+(• receiving the user request from the backend) Tj
+/F1 12 Tf
+1 0 0 1 54 610 Tm
+(• collecting conversation history) Tj
+/F1 12 Tf
+1 0 0 1 54 592 Tm
+(• attaching tool definitions and policy metadata) Tj
+/F1 12 Tf
+1 0 0 1 54 574 Tm
+(• calling the model) Tj
+/F1 12 Tf
+1 0 0 1 54 556 Tm
+(• interpreting the model's response) Tj
+/F1 12 Tf
+1 0 0 1 54 538 Tm
+(• executing tool calls through MCP) Tj
+/F1 12 Tf
+1 0 0 1 54 520 Tm
+(• asking for human approval when required) Tj
+/F1 12 Tf
+1 0 0 1 54 502 Tm
+(• looping until a final answer is ready) Tj
+/F1 12 Tf
+1 0 0 1 54 484 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 466 Tm
+(The agent does not do deep semantic reasoning by itself. It manages the process that) Tj
+/F1 12 Tf
+1 0 0 1 54 448 Tm
+(lets the model reason and lets tools execute safely.) Tj
+/F1 12 Tf
+1 0 0 1 54 430 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 412 Tm
+(MCP Server) Tj
+/F1 12 Tf
+1 0 0 1 54 392 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 374 Tm
+(An MCP server is a tool provider.) Tj
+/F1 12 Tf
+1 0 0 1 54 356 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 338 Tm
+(It exposes capabilities using a standard protocol. For example, an MCP server can offer) Tj
+/F1 12 Tf
+1 0 0 1 54 320 Tm
+(tools such as:) Tj
+/F1 12 Tf
+1 0 0 1 54 302 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 284 Tm
+(• read_file) Tj
+/F1 12 Tf
+1 0 0 1 54 266 Tm
+(• write_file) Tj
+/F1 12 Tf
+1 0 0 1 54 248 Tm
+(• list_directory) Tj
+/F1 12 Tf
+1 0 0 1 54 230 Tm
+(• search_docs) Tj
+/F1 12 Tf
+1 0 0 1 54 212 Tm
+(• query_database) Tj
+/F1 12 Tf
+1 0 0 1 54 194 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 176 Tm
+(The MCP server does not usually decide when a tool should be used. It simply advertises) Tj
+/F1 12 Tf
+1 0 0 1 54 158 Tm
+(available tools and executes them when called.) Tj
+/F1 12 Tf
+1 0 0 1 54 140 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 122 Tm
+(Tool) Tj
+/F1 12 Tf
+1 0 0 1 54 102 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 84 Tm
+(A tool is a specific action exposed by an MCP server.) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 5 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+7 0 obj
+<< /Length 2167 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+(Examples:) Tj
+/F1 12 Tf
+1 0 0 1 54 702 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 684 Tm
+(• read a file) Tj
+/F1 12 Tf
+1 0 0 1 54 666 Tm
+(• write a file) Tj
+/F1 12 Tf
+1 0 0 1 54 648 Tm
+(• delete a file) Tj
+/F1 12 Tf
+1 0 0 1 54 630 Tm
+(• fetch data from an API) Tj
+/F1 12 Tf
+1 0 0 1 54 612 Tm
+(• search internal knowledge) Tj
+/F1 12 Tf
+1 0 0 1 54 594 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 576 Tm
+(In simple terms:) Tj
+/F1 12 Tf
+1 0 0 1 54 558 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 540 Tm
+(• MCP server = toolbox provider) Tj
+/F1 12 Tf
+1 0 0 1 54 522 Tm
+(• tool = one tool inside the toolbox) Tj
+/F1 12 Tf
+1 0 0 1 54 504 Tm
+(• agent = coordinator using the toolbox) Tj
+/F1 12 Tf
+1 0 0 1 54 486 Tm
+(• model = reasoning system helping the coordinator decide) Tj
+/F1 12 Tf
+1 0 0 1 54 468 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 450 Tm
+(3. The Most Important Distinction) Tj
+/F1 12 Tf
+1 0 0 1 54 428 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 410 Tm
+(People often confuse the model and the agent.) Tj
+/F1 12 Tf
+1 0 0 1 54 392 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 374 Tm
+(The model is not the whole agent.) Tj
+/F1 12 Tf
+1 0 0 1 54 356 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 338 Tm
+(The model reasons.) Tj
+/F1 12 Tf
+1 0 0 1 54 320 Tm
+(The agent manages.) Tj
+/F1 12 Tf
+1 0 0 1 54 302 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 284 Tm
+(That means:) Tj
+/F1 12 Tf
+1 0 0 1 54 266 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 248 Tm
+(• the model interprets what the user wants) Tj
+/F1 12 Tf
+1 0 0 1 54 230 Tm
+(• the agent turns that interpretation into a safe, executable workflow) Tj
+/F1 12 Tf
+1 0 0 1 54 212 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 194 Tm
+(This is why the correct high-level flow is:) Tj
+/F1 12 Tf
+1 0 0 1 54 176 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 158 Tm
+(User -> Frontend -> Backend -> Agent -> Model -> Agent -> MCP Server -> Tool -> Result) Tj
+/F1 12 Tf
+1 0 0 1 54 140 Tm
+(-> Agent -> Model -> Agent -> Backend -> Frontend -> User) Tj
+/F1 12 Tf
+1 0 0 1 54 122 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 104 Tm
+(This version is more accurate than placing the model before the agent as a separate) Tj
+/F1 12 Tf
+1 0 0 1 54 86 Tm
+(top-level stage, because the model lives inside the agent loop.) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 7 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+9 0 obj
+<< /Length 2435 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 720 Tm
+(4. What the Agent Knows Before the Model Runs) Tj
+/F1 12 Tf
+1 0 0 1 54 698 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 680 Tm
+(Suppose the user says:) Tj
+/F1 12 Tf
+1 0 0 1 54 662 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 644 Tm
+(Please create a summary from sales.txt.) Tj
+/F1 12 Tf
+1 0 0 1 54 626 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 608 Tm
+(Before the model reasons about that sentence, the agent can already know several) Tj
+/F1 12 Tf
+1 0 0 1 54 590 Tm
+(system-level facts:) Tj
+/F1 12 Tf
+1 0 0 1 54 572 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 554 Tm
+(• this is the latest user message) Tj
+/F1 12 Tf
+1 0 0 1 54 536 Tm
+(• it belongs to conversation abc123) Tj
+/F1 12 Tf
+1 0 0 1 54 518 Tm
+(• prior chat history exists) Tj
+/F1 12 Tf
+1 0 0 1 54 500 Tm
+(• these MCP servers are connected) Tj
+/F1 12 Tf
+1 0 0 1 54 482 Tm
+(• these tools are currently available) Tj
+/F1 12 Tf
+1 0 0 1 54 464 Tm
+(• some tools are read-only) Tj
+/F1 12 Tf
+1 0 0 1 54 446 Tm
+(• some tools require approval for write or delete actions) Tj
+/F1 12 Tf
+1 0 0 1 54 428 Tm
+(• the configured model is available for the next turn) Tj
+/F1 12 Tf
+1 0 0 1 54 410 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 392 Tm
+(This is not deep semantic understanding. The agent is not yet deciding what the sentence) Tj
+/F1 12 Tf
+1 0 0 1 54 374 Tm
+(means. It is only gathering the context that the model will need.) Tj
+/F1 12 Tf
+1 0 0 1 54 356 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 338 Tm
+(5. What the Model Figures Out) Tj
+/F1 12 Tf
+1 0 0 1 54 316 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 298 Tm
+(When the agent sends the request to the model, the model reasons over:) Tj
+/F1 12 Tf
+1 0 0 1 54 280 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 262 Tm
+(• the user message) Tj
+/F1 12 Tf
+1 0 0 1 54 244 Tm
+(• the conversation history) Tj
+/F1 12 Tf
+1 0 0 1 54 226 Tm
+(• the available tool definitions) Tj
+/F1 12 Tf
+1 0 0 1 54 208 Tm
+(• the policies and instructions) Tj
+/F1 12 Tf
+1 0 0 1 54 190 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 172 Tm
+(For the message Please create a summary from sales.txt, the model may infer:) Tj
+/F1 12 Tf
+1 0 0 1 54 154 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 136 Tm
+(• the user wants a summary) Tj
+/F1 12 Tf
+1 0 0 1 54 118 Tm
+(• to produce a summary, the file content must be read first) Tj
+/F1 12 Tf
+1 0 0 1 54 100 Tm
+(• the read_file tool is likely the right next step) Tj
+/F1 12 Tf
+1 0 0 1 54 82 Tm
+(• after the file content is available, the model can summarize it) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 9 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+11 0 obj
+<< /Length 2058 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+(This is where semantic interpretation happens.) Tj
+/F1 12 Tf
+1 0 0 1 54 702 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 684 Tm
+(6. Step-by-Step End-to-End Workflow) Tj
+/F1 12 Tf
+1 0 0 1 54 662 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 644 Tm
+(Scenario: Read and Summarize a File) Tj
+/F1 12 Tf
+1 0 0 1 54 624 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 606 Tm
+(User prompt:) Tj
+/F1 12 Tf
+1 0 0 1 54 588 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 570 Tm
+(Please create a summary from sales.txt.) Tj
+/F1 12 Tf
+1 0 0 1 54 552 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 534 Tm
+(Step 1. User enters a message in the frontend.) Tj
+/F1 12 Tf
+1 0 0 1 54 516 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 498 Tm
+(The React app sends the text, conversation ID, and selected context to the backend.) Tj
+/F1 12 Tf
+1 0 0 1 54 480 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 462 Tm
+(Step 2. Backend hands the request to the agent service.) Tj
+/F1 12 Tf
+1 0 0 1 54 444 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 426 Tm
+(The backend does transport and orchestration. It does not decide the final answer by) Tj
+/F1 12 Tf
+1 0 0 1 54 408 Tm
+(itself.) Tj
+/F1 12 Tf
+1 0 0 1 54 390 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 372 Tm
+(Step 3. Agent collects context.) Tj
+/F1 12 Tf
+1 0 0 1 54 354 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 336 Tm
+(The agent gathers:) Tj
+/F1 12 Tf
+1 0 0 1 54 318 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 300 Tm
+(• the new user message) Tj
+/F1 12 Tf
+1 0 0 1 54 282 Tm
+(• the prior conversation) Tj
+/F1 12 Tf
+1 0 0 1 54 264 Tm
+(• connected MCP servers) Tj
+/F1 12 Tf
+1 0 0 1 54 246 Tm
+(• the current tool registry) Tj
+/F1 12 Tf
+1 0 0 1 54 228 Tm
+(• policy rules such as approval requirements) Tj
+/F1 12 Tf
+1 0 0 1 54 210 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 192 Tm
+(Step 4. Agent calls the model.) Tj
+/F1 12 Tf
+1 0 0 1 54 174 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 156 Tm
+(The agent sends the raw user message plus context and tool schemas.) Tj
+/F1 12 Tf
+1 0 0 1 54 138 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 120 Tm
+(Step 5. Model interprets intent.) Tj
+/F1 12 Tf
+1 0 0 1 54 102 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 84 Tm
+(The model decides whether:) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 11 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+13 0 obj
+<< /Length 2266 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+(• it can answer directly, or) Tj
+/F1 12 Tf
+1 0 0 1 54 702 Tm
+(• it needs one or more tools) Tj
+/F1 12 Tf
+1 0 0 1 54 684 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 666 Tm
+(For this example, it likely chooses read_file.) Tj
+/F1 12 Tf
+1 0 0 1 54 648 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 630 Tm
+(Step 6. Agent receives the model output.) Tj
+/F1 12 Tf
+1 0 0 1 54 612 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 594 Tm
+(If the model requests a tool call, the agent parses the tool name and arguments.) Tj
+/F1 12 Tf
+1 0 0 1 54 576 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 558 Tm
+(Step 7. Agent checks safety and execution policy.) Tj
+/F1 12 Tf
+1 0 0 1 54 540 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 522 Tm
+(If the tool is read-only, execution usually continues immediately.) Tj
+/F1 12 Tf
+1 0 0 1 54 504 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 486 Tm
+(Step 8. Agent calls the MCP client layer.) Tj
+/F1 12 Tf
+1 0 0 1 54 468 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 450 Tm
+(The MCP client finds which MCP server owns the requested tool and invokes it using) Tj
+/F1 12 Tf
+1 0 0 1 54 432 Tm
+(stdio, SSE, or HTTP, depending on the server type.) Tj
+/F1 12 Tf
+1 0 0 1 54 414 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 396 Tm
+(Step 9. MCP server executes the tool.) Tj
+/F1 12 Tf
+1 0 0 1 54 378 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 360 Tm
+(For a filesystem server, it opens the file and returns the content.) Tj
+/F1 12 Tf
+1 0 0 1 54 342 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 324 Tm
+(Step 10. Agent receives the tool result.) Tj
+/F1 12 Tf
+1 0 0 1 54 306 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 288 Tm
+(The result is now grounded in real system state rather than model guesswork.) Tj
+/F1 12 Tf
+1 0 0 1 54 270 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 252 Tm
+(Step 11. Agent calls the model again.) Tj
+/F1 12 Tf
+1 0 0 1 54 234 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 216 Tm
+(This time the model sees the file content and can produce the requested summary.) Tj
+/F1 12 Tf
+1 0 0 1 54 198 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 180 Tm
+(Step 12. Agent streams the final answer back through the backend to the frontend.) Tj
+/F1 12 Tf
+1 0 0 1 54 162 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 144 Tm
+(The user sees a live response.) Tj
+/F1 12 Tf
+1 0 0 1 54 126 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 108 Tm
+(7. Write/Delete Flow and Human-in-the-Loop) Tj
+/F1 12 Tf
+1 0 0 1 54 86 Tm
+() Tj
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 13 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+15 0 obj
+<< /Length 2206 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+(Now suppose the user says:) Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 702 Tm
+(Create a file named todo.txt and add today's tasks.) Tj
+/F1 12 Tf
+1 0 0 1 54 684 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 666 Tm
+(The early workflow is the same:) Tj
+/F1 12 Tf
+1 0 0 1 54 648 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 630 Tm
+(• user sends a message) Tj
+/F1 12 Tf
+1 0 0 1 54 612 Tm
+(• agent collects context) Tj
+/F1 12 Tf
+1 0 0 1 54 594 Tm
+(• model decides a write tool is needed) Tj
+/F1 12 Tf
+1 0 0 1 54 576 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 558 Tm
+(The key difference is policy enforcement.) Tj
+/F1 12 Tf
+1 0 0 1 54 540 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 522 Tm
+(If the requested tool has write or delete implications:) Tj
+/F1 12 Tf
+1 0 0 1 54 504 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 486 Tm
+(• the agent does not execute it immediately) Tj
+/F1 12 Tf
+1 0 0 1 54 468 Tm
+(• the backend creates a pending approval state) Tj
+/F1 12 Tf
+1 0 0 1 54 450 Tm
+(• the frontend opens a confirmation modal) Tj
+/F1 12 Tf
+1 0 0 1 54 432 Tm
+(• the user approves or rejects the action) Tj
+/F1 12 Tf
+1 0 0 1 54 414 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 396 Tm
+(If approved:) Tj
+/F1 12 Tf
+1 0 0 1 54 378 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 360 Tm
+(• the tool runs) Tj
+/F1 12 Tf
+1 0 0 1 54 342 Tm
+(• the result goes back to the model) Tj
+/F1 12 Tf
+1 0 0 1 54 324 Tm
+(• the model produces the final response) Tj
+/F1 12 Tf
+1 0 0 1 54 306 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 288 Tm
+(If rejected:) Tj
+/F1 12 Tf
+1 0 0 1 54 270 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 252 Tm
+(• the tool does not run) Tj
+/F1 12 Tf
+1 0 0 1 54 234 Tm
+(• the model can explain that the action was not allowed) Tj
+/F1 12 Tf
+1 0 0 1 54 216 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 198 Tm
+(This pattern is called HITL, or Human In The Loop.) Tj
+/F1 12 Tf
+1 0 0 1 54 180 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 162 Tm
+(8. Why the Agent Does Not Need to "Understand" the Whole Paragraph) Tj
+/F1 12 Tf
+1 0 0 1 54 140 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 122 Tm
+(This is a common interview question and a common conceptual confusion.) Tj
+/F1 12 Tf
+1 0 0 1 54 104 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 86 Tm
+(The agent does not have to semantically understand the user prompt the way the model) Tj
+ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 15 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+17 0 obj
+<< /Length 2152 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+(does.) Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 702 Tm
+(The agent only needs enough system-level understanding to:) Tj
+/F1 12 Tf
+1 0 0 1 54 684 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 666 Tm
+(• know this is a user message) Tj
+/F1 12 Tf
+1 0 0 1 54 648 Tm
+(• associate it with a conversation) Tj
+/F1 12 Tf
+1 0 0 1 54 630 Tm
+(• gather memory) Tj
+/F1 12 Tf
+1 0 0 1 54 612 Tm
+(• gather tool metadata) Tj
+/F1 12 Tf
+1 0 0 1 54 594 Tm
+(• gather policy metadata) Tj
+/F1 12 Tf
+1 0 0 1 54 576 Tm
+(• call the model with the right context) Tj
+/F1 12 Tf
+1 0 0 1 54 558 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 540 Tm
+(The model is the component that interprets what the prompt means.) Tj
+/F1 12 Tf
+1 0 0 1 54 522 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 504 Tm
+(A useful analogy:) Tj
+/F1 12 Tf
+1 0 0 1 54 486 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 468 Tm
+(• the agent is like a skilled operations coordinator) Tj
+/F1 12 Tf
+1 0 0 1 54 450 Tm
+(• the model is like the subject-matter reasoner) Tj
+/F1 12 Tf
+1 0 0 1 54 432 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 414 Tm
+(The coordinator can route the work correctly without personally solving the user) Tj
+/F1 12 Tf
+1 0 0 1 54 396 Tm
+(problem.) Tj
+/F1 12 Tf
+1 0 0 1 54 378 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 360 Tm
+(9. Why MCP Matters) Tj
+/F1 12 Tf
+1 0 0 1 54 338 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 320 Tm
+(Without MCP, every tool integration would need custom backend code.) Tj
+/F1 12 Tf
+1 0 0 1 54 302 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 284 Tm
+(That becomes difficult to scale because each new tool would require:) Tj
+/F1 12 Tf
+1 0 0 1 54 266 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 248 Tm
+(• its own invocation contract) Tj
+/F1 12 Tf
+1 0 0 1 54 230 Tm
+(• its own schema mapping) Tj
+/F1 12 Tf
+1 0 0 1 54 212 Tm
+(• its own transport implementation) Tj
+/F1 12 Tf
+1 0 0 1 54 194 Tm
+(• its own connection and lifecycle handling) Tj
+/F1 12 Tf
+1 0 0 1 54 176 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 158 Tm
+(MCP solves this by standardizing:) Tj
+/F1 12 Tf
+1 0 0 1 54 140 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 122 Tm
+(• tool discovery) Tj
+/F1 12 Tf
+1 0 0 1 54 104 Tm
+(• tool schemas) Tj
+/F1 12 Tf
+1 0 0 1 54 86 Tm
+(• invocation format) Tj
+ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 17 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+19 0 obj
+<< /Length 2442 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+(• server connection behavior) Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 702 Tm
+(That makes tools pluggable instead of hardwired.) Tj
+/F1 12 Tf
+1 0 0 1 54 684 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 666 Tm
+(10. Why Observability Matters) Tj
+/F1 12 Tf
+1 0 0 1 54 644 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 626 Tm
+(Production agent systems are hard to debug if you cannot see what happened.) Tj
+/F1 12 Tf
+1 0 0 1 54 608 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 590 Tm
+(This project includes structured logging and tracing so that teams can inspect:) Tj
+/F1 12 Tf
+1 0 0 1 54 572 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 554 Tm
+(• the incoming request) Tj
+/F1 12 Tf
+1 0 0 1 54 536 Tm
+(• the model call) Tj
+/F1 12 Tf
+1 0 0 1 54 518 Tm
+(• the selected tool) Tj
+/F1 12 Tf
+1 0 0 1 54 500 Tm
+(• approval checkpoints) Tj
+/F1 12 Tf
+1 0 0 1 54 482 Tm
+(• the MCP server execution) Tj
+/F1 12 Tf
+1 0 0 1 54 464 Tm
+(• the final response) Tj
+/F1 12 Tf
+1 0 0 1 54 446 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 428 Tm
+(In interviews, this matters because mature AI systems are not judged only by whether) Tj
+/F1 12 Tf
+1 0 0 1 54 410 Tm
+(they "work once." They are judged by whether they are safe, debuggable, observable, and) Tj
+/F1 12 Tf
+1 0 0 1 54 392 Tm
+(maintainable.) Tj
+/F1 12 Tf
+1 0 0 1 54 374 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 356 Tm
+(11. Likely Interview Questions and Strong Answers) Tj
+/F1 12 Tf
+1 0 0 1 54 334 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 316 Tm
+(Q1. What is the difference between an agent and a model?) Tj
+/F1 12 Tf
+1 0 0 1 54 296 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 278 Tm
+(Answer:) Tj
+/F1 12 Tf
+1 0 0 1 54 260 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 242 Tm
+(The model performs semantic reasoning over language and tool descriptions. The agent is) Tj
+/F1 12 Tf
+1 0 0 1 54 224 Tm
+(the orchestration layer around the model. It manages context, policy, tool execution,) Tj
+/F1 12 Tf
+1 0 0 1 54 206 Tm
+(retries, approvals, and the control loop that turns model outputs into real actions.) Tj
+/F1 12 Tf
+1 0 0 1 54 188 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 170 Tm
+(Q2. What is the difference between an MCP server and a tool?) Tj
+/F1 12 Tf
+1 0 0 1 54 150 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 132 Tm
+(Answer:) Tj
+/F1 12 Tf
+1 0 0 1 54 114 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 96 Tm
+(An MCP server is the provider that exposes one or more tools through a standard) Tj
+/F1 12 Tf
+1 0 0 1 54 78 Tm
+(protocol. A tool is a single callable capability such as reading a file or querying a) Tj
+ET
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 19 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+21 0 obj
+<< /Length 2402 >>
+stream
+BT
+/F1 12 Tf
+1 0 0 1 54 738 Tm
+(service.) Tj
+/F1 12 Tf
+1 0 0 1 54 720 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 702 Tm
+(Q3. Why not let the model call tools directly?) Tj
+/F1 12 Tf
+1 0 0 1 54 682 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 664 Tm
+(Answer:) Tj
+/F1 12 Tf
+1 0 0 1 54 646 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 628 Tm
+(Because production systems need governance. The agent layer validates tool availability,) Tj
+/F1 12 Tf
+1 0 0 1 54 610 Tm
+(applies policy, routes requests to the correct server, enforces human approval for risky) Tj
+/F1 12 Tf
+1 0 0 1 54 592 Tm
+(actions, and maintains auditability.) Tj
+/F1 12 Tf
+1 0 0 1 54 574 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 556 Tm
+(Q4. Why is Human In The Loop important?) Tj
+/F1 12 Tf
+1 0 0 1 54 536 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 518 Tm
+(Answer:) Tj
+/F1 12 Tf
+1 0 0 1 54 500 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 482 Tm
+(Because some tool calls can change external state. Write and delete actions should often) Tj
+/F1 12 Tf
+1 0 0 1 54 464 Tm
+(require user approval so the assistant remains useful without becoming unsafe or) Tj
+/F1 12 Tf
+1 0 0 1 54 446 Tm
+(uncontrollable.) Tj
+/F1 12 Tf
+1 0 0 1 54 428 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 54 410 Tm
+(Q5. Why is strict typing important in agent systems?) Tj
+/F1 12 Tf
+1 0 0 1 54 390 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 372 Tm
+(Answer:) Tj
+/F1 12 Tf
+1 0 0 1 54 354 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 336 Tm
+(Agent systems pass many structured payloads between frontend, backend, models, and) Tj
+/F1 12 Tf
+1 0 0 1 54 318 Tm
+(tools. Strong typing reduces ambiguity, makes failures easier to detect, and helps keep) Tj
+/F1 12 Tf
+1 0 0 1 54 300 Tm
+(tool contracts reliable across the stack.) Tj
+/F1 12 Tf
+1 0 0 1 54 282 Tm
+() Tj
+/F2 16 Tf
+1 0 0 1 54 264 Tm
+(12. Best Short Summary for Interviews) Tj
+/F1 12 Tf
+1 0 0 1 54 242 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 224 Tm
+(If you need one concise summary:) Tj
+/F1 12 Tf
+1 0 0 1 54 206 Tm
+() Tj
+/F1 12 Tf
+1 0 0 1 54 188 Tm
+(This system is an agentic assistant platform where the backend agent orchestrates a) Tj
+/F1 12 Tf
+1 0 0 1 54 170 Tm
+(model and a set of MCP-exposed tools. The model interprets user intent, the agent) Tj
+/F1 12 Tf
+1 0 0 1 54 152 Tm
+(manages workflow and policy, MCP servers expose tool capabilities, and human approval) Tj
+/F1 12 Tf
+1 0 0 1 54 134 Tm
+(protects risky actions. The result is a safer and more production-ready AI architecture) Tj
+/F1 12 Tf
+1 0 0 1 54 116 Tm
+(than a simple chat application.) Tj
+ET
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 23 0 R /MediaBox [0 0 612 792] /Contents 21 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+23 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R] /Count 10 >>
+endobj
+24 0 obj
+<< /Type /Catalog /Pages 23 0 R >>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000000154 00000 n 
+0000002382 00000 n 
+0000002519 00000 n 
+0000004769 00000 n 
+0000004906 00000 n 
+0000007125 00000 n 
+0000007262 00000 n 
+0000009749 00000 n 
+0000009887 00000 n 
+0000011998 00000 n 
+0000012137 00000 n 
+0000014456 00000 n 
+0000014595 00000 n 
+0000016854 00000 n 
+0000016993 00000 n 
+0000019198 00000 n 
+0000019337 00000 n 
+0000021832 00000 n 
+0000021971 00000 n 
+0000024426 00000 n 
+0000024565 00000 n 
+0000024685 00000 n 
+trailer
+<< /Size 25 /Root 24 0 R >>
+startxref
+24736
+%%EOF
