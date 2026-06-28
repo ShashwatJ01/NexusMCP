@@ -48,4 +48,6 @@ npm run typecheck
 npm run build
 ```
 
+## Small demo Project for discovering MCP tools and routing tool calls
+
 See [WORKFLOW_SPEC.md](WORKFLOW_SPEC.md) for the network trace and [STUDY_GUIDE.md](STUDY_GUIDE.md) for the architecture interview playbook.
